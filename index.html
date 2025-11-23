@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>October Sky — Production</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#6f5d53;color:#fff;scroll-behavior:smooth;overflow-x:hidden;}
+
+/* ---------------- HERO CINEMATIC ------------------ */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transform-origin: center;
+    transition: transform 1.2s ease, opacity 1.2s ease;
+    z-index: 10;
+}
+.hero.shrink { transform: scale(0.7); opacity: 0.4; }
+.hero-bg img {
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.8s ease;
+    transform:scale(1.15);
+}
+.hero-bg img.active { opacity:1; }
+.overlay { position:absolute; top:0;left:0;width:100%;height:100%; background:rgba(6, 5, 5, 0.45); z-index:2; }
+.hero-logo { position:absolute; top:40px; left:40px; z-index:6; }
+.hero-logo img { width:360px; filter:drop-shadow(0 0 25px #c0bba7); animation:pulse 4s infinite ease-in-out; }
+@keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.12);} 100%{transform:scale(1);} }
+.hero-text { position:absolute; bottom:60px; left:50%; transform:translateX(-50%); display:flex; gap:40px; z-index:6; transition:1s ease; }
+.hero-title { font-size:75px; font-weight:900; letter-spacing:2px; transition:transform 1s ease, opacity 1s ease; color:#f4f3ec; text-shadow: 0 0 20px rgba(234, 228, 194, 0.8), 0 0 40px rgba(241, 239, 228, 0.5); }
+.hero.shrink .october { transform:translateX(-450px); opacity:0; }
+.hero.shrink .sky { transform:translateX(450px); opacity:0; }
+.hero-line { position:absolute; top:28%; left:60px; font-size:22px; width:300px; color:#c0bba7; z-index:6; opacity:0; animation:fadeIn 2s forwards 1s; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+/* NEW WORK-SECTION LAYOUT EXACTLY LIKE SKETCH */
+#work{padding:120px 60px;background:#6f5d53;}
+.work-title{font-size:56px;margin-bottom:20px;color:#481e1f;font-weight:900;}
+.sketched-grid{
+width:100%;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+}
+.block{
+background:#481e1f;
+border-radius:12px;
+
+}
+/* Shaping blocks to match the drawing */
+.block1{height:380px; grid-column:span 1; grid-row:span 1;}
+.block2{height:400px; grid-column:span 1;}
+.block3{height:370px; grid-column:span 1;}
+.block4{height:420px; grid-column:span 1;}
+.block5{height:560px; grid-column:span 1;}
+.block6{height:490px; grid-column:span 1;}
+.block7{height:530px; grid-column:span 1;}
+.block8{height:560px; grid-column:span 1;}
+.block9{height:260px; grid-column:span 1;}
+.block10{height:300px; grid-column:span 1;}
+.block11{height:200px; grid-column:span 1;}
+.block12{height:260px; grid-column:span 1;}
+
+@keyframes blockFadeIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------------- BHARAT STARTUP YATRA ------------------ */
+.bs-yatra { margin-top:120px; width:100%; text-align:center; }
+.yatra-title { font-size:55px; font-weight:900; letter-spacing:2px; opacity:0; transform:translateY(-60px); color:#481e1f; }
+.yatra-title.show { animation:dropIn 1.2s ease forwards; }
+@keyframes dropIn { 0% { opacity:0; transform:translateY(-80px) scale(0.9); } 100% { opacity:1; transform:translateY(0) scale(1); } }
+.highlight { color: #b3a099; font-weight: 900; }
+.yatra-sub { font-size:22px; margin-top:18px; color:#c0bba7; opacity:0; transform:translateY(40px); }
+.yatra-sub.show { animation:fadeUp 1.3s ease forwards; }
+.yatra-paras { width:70%; margin:40px auto 0 auto; text-align:left; }
+.yatra-paras p { font-size:18px; line-height:1.7; color:#c0bba7; margin-bottom:20px; opacity:0; transform:translateY(50px); }
+.yatra-paras p.show { animation:fadeUp 1.3s ease forwards; }
+@keyframes fadeUp { 0% { opacity:0; transform:translateY(50px); } 100% { opacity:1; transform:translateY(0); } }
+.yatra-gallery { width:80%; margin:80px auto 0 auto; display:flex; flex-direction:column; gap:40px; }
+.yatra-img { height:330px; border-radius:22px; background-size:cover; background-position:center; filter:brightness(0.8) contrast(1.2); opacity:0; transform:translateY(70px); transition:1.2s ease; border:2px solid #b3a099; }
+.yatra-img:nth-child(odd) { margin-left:0; margin-right:auto; width:75%; }
+.yatra-img:nth-child(even){ margin-right:0; margin-left:auto; width:75%; }
+.yatra-img.show { opacity:1; transform:translateY(0); }
+
+/* ---------------- ABOUT US SECTION ------------------ */
+#about { display:flex; flex-direction:column; gap:30px; padding:120px 60px; align-items:flex-start; background:#6f5d53; }
+.about-heading { font-size:56px; font-weight:900; color:#481e1f; text-align:left; width:100%; opacity:0; animation:headingReveal 1s ease-out forwards; }
+@keyframes headingReveal { 0% { opacity:0; transform:translateX(-30px); } 100% { opacity:1; transform:translateX(0); } }
+
+/* SIMPLIFIED CENTERED QUOTE */
+.about-center-quote {
+  font-size: 56px;
+  font-weight: 900;
+  font-style: normal;
+  text-align: center;
+  color: #5c3233;
+  letter-spacing: 1px;
+  margin: 60px auto;
+  max-width: 1000px;
+  padding: 0;
+  animation: quoteSimpleFadeIn 1.5s ease-out forwards;
+  line-height: 1.3;
+}
+
+@keyframes quoteSimpleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-wrapper { 
+  display: flex; 
+  gap: 80px; 
+  align-items: flex-start; 
+  width: 100%; 
+  max-width: 1400px; 
+  margin: 60px auto; 
+  background: rgba(179,160,153,0.08);
+  padding: 60px;
+  border-radius: 20px;
+  border: 1px solid rgba(179,160,153,0.2);
+}
+
+.about-image-container { 
+  flex: 0 0 450px; 
+  height: auto; 
+  opacity: 1;
+  position: relative; 
+}
+
+.about-image-container img { 
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; 
+  border-radius: 20px; 
+  filter: brightness(1) contrast(1);
+  border: none;
+}
+
+.about-text-container { flex:1; display: flex; flex-direction: column; justify-content: center; }
+
+.about-text-container h3 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #c0bba7;
+  margin-bottom: 30px;
+  line-height: 1.3;
+  font-style: italic;
+}
+
+.about-text-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #c0bba7;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.about-quote { position:relative; font-size:42px; font-weight:700; font-style:italic; text-align:center; width:100%; margin:40px 0 80px 0; color:#c0bba7; letter-spacing:2px; perspective:1000px; opacity:0; transform-style:preserve-3d; }
+.about-quote::before { content:'"'; font-size:80px; color:rgba(179,160,153,0.15); display:inline-block; }
+.about-quote::after { content:'"'; font-size:80px; color:rgba(179,160,153,0.15); display:inline-block; }
+/* Letter shower animation */
+.quote-letter { display:inline-block; opacity:0; animation:letterShower 0.8s ease-out forwards; }
+.quote-letter:nth-child(1) { animation-delay:0s; }
+.quote-letter:nth-child(2) { animation-delay:0.05s; }
+.quote-letter:nth-child(3) { animation-delay:0.1s; }
+.quote-letter:nth-child(4) { animation-delay:0.15s; }
+.quote-letter:nth-child(5) { animation-delay:0.2s; }
+.quote-letter:nth-child(6) { animation-delay:0.25s; }
+.quote-letter:nth-child(7) { animation-delay:0.3s; }
+.quote-letter:nth-child(8) { animation-delay:0.35s; }
+.quote-letter:nth-child(9) { animation-delay:0.4s; }
+.quote-letter:nth-child(10) { animation-delay:0.45s; }
+.quote-letter:nth-child(n+11) { animation-delay:calc(0.45s + (var(--index) - 10) * 0.05s); }
+@keyframes letterShower { 0% { opacity:0; transform:translateY(-30px) rotateZ(-10deg); } 100% { opacity:1; transform:translateY(0) rotateZ(0deg); } }
+@keyframes quoteReveal { 0% { opacity:0; transform:rotateX(20deg) rotateY(-10deg) translateZ(-50px) scale(0.95); } 100% { opacity:1; transform:rotateX(0deg) rotateY(0deg) translateZ(0) scale(1); } }
+.about-content { display:flex; flex-direction:column; gap:0; width:100%; margin:0; }
+.about-line { font-size:18px; line-height:1.8; color:#c0bba7; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; text-align:left; margin-bottom:12px; }
+
+.about-gallery { 
+  display: flex; 
+  justify-content: center; 
+  gap: 30px; 
+  flex-wrap: wrap; 
+  margin-top: 60px; 
+  perspective: 1000px; 
+}
+
+.about-card { 
+  width: 240px; 
+  height: 320px; 
+  border-radius: 20px; 
+  background-size: cover; 
+  background-position: center; 
+  filter: brightness(0.85) contrast(1.1); 
+  transform: rotateY(0deg) rotateX(0deg) translateZ(0); 
+  transition: transform 0.6s ease, opacity 1s ease; 
+  opacity: 0; 
+}
+
+.about-card.show { opacity:1; }
+.about-card:hover { transform: rotateY(15deg) rotateX(10deg) scale(1.05); }
+
+/* ---------------- MISSION SECTION - NO BOX, 3D IMAGE ------------------ */
+.mission-section { 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:80px; 
+  padding:80px 60px; 
+  background:transparent;
+  margin-top:60px; 
+}
+.mission-image { 
+  flex:1; 
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  perspective:1200px; 
+}
+.mission-image img { 
+  width:100%; 
+  max-width:500px; 
+  border-radius:20px; 
+  filter:brightness(0.9) contrast(1.1); 
+  transition: transform 0.3s ease; 
+  transform-style:preserve-3d;
+}
+.mission-image:hover img {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+.mission-content { flex:1; overflow:hidden; }
+.mission-heading { font-size:48px; font-weight:900; color:#481e1f; margin-bottom:30px; letter-spacing:1px; }
+.mission-text { font-size:20px; line-height:1.9; color:#c0bba7; opacity:1; transform:translateY(0); transition:opacity 1s ease, transform 1s ease; font-weight: 400; }
+
+/* ---------------- VISION SECTION - NO BOX, 3D IMAGE ------------------ */
+.vision-section { 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:80px; 
+  padding:80px 60px; 
+  background:transparent;
+  margin-top:60px; 
+}
+.vision-content { flex:1; overflow:hidden; }
+.vision-heading { font-size:48px; font-weight:900; color:#481e1f; margin-bottom:30px; letter-spacing:1px; }
+.vision-text { font-size:20px; line-height:1.9; color:#c0bba7; opacity:1; transform:translateY(0); transition:opacity 1s ease, transform 1s ease; font-weight: 400; }
+.vision-image { 
+  flex:1; 
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  perspective:1200px; 
+}
+.vision-image img { 
+  width:100%; 
+  max-width:500px; 
+  border-radius:20px; 
+  filter:brightness(0.9) contrast(1.1); 
+  transition: transform 0.3s ease; 
+  transform-style:preserve-3d;
+}
+.vision-image:hover img {
+  transform: rotateY(-10deg) rotateX(5deg) scale(1.05);
+}
+
+/* NAVIGATION */
+nav { position:fixed; top:40px; right:40px; z-index:999; }
+nav ul { list-style:none; display:flex; flex-direction:column; gap:16px; }
+nav ul li a { text-decoration:none; color:#c0bba7; font-size:18px; font-weight:600; padding:10px 18px; border-radius:14px; background:rgba(72,30,31,0.7); border:1px solid rgba(179,160,153,0.3); backdrop-filter:blur(8px); }
+
+section { padding:120px 60px; }
+h2 { font-size:48px; margin-bottom:20px; color:#481e1f; }
+p { font-size:18px; color:#c0bba7; }
+.card { background:#481e1f; padding:20px; border-radius:12px; border:1px solid #b3a099; margin-bottom:20px; }
+
+/* TYPING CONTAINER 3D STYLING */
+.typing-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0;
+  min-height: 100px;
+}
+
+#typingText {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: #c0bba7;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  transform-style: preserve-3d;
+  animation: float 4s ease-in-out infinite;
+  padding: 30px 50px;
+  transition: all 0.8s ease;
+}
+
+#typingText:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(-5deg) scale(1.02);
+}
+
+#typingText span {
+  color: #b3a099;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateZ(0px); }
+  50% { transform: translateY(-15px) translateZ(10px); }
+}
+
+span {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============ NEW SERVICES SECTION STYLES ============ */
+#services {
+  padding: 120px 60px;
+  background: #6f5d53;
+}
+
+/* Hero Banner - NO BOX */
+.services-hero {
+  padding: 0px 0px 60px 0px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.services-hero h2 {
+  font-size: 56px;
+  font-weight: 900;
+  color: #481e1f;
+  margin-bottom: 25px;
+}
+
+.services-hero p {
+  font-size: 20px;
+  color: #c0bba7;
+  max-width: 1000px;
+  line-height: 1.7;
+  margin: 0 auto;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.service-card {
+  background: linear-gradient(135deg, rgba(72,30,31,0.5) 0%, rgba(72,30,31,0.3) 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: #c0bba7;
+  box-shadow: 0 20px 60px rgba(72,30,31,0.4);
+}
+
+.service-video {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.service-video::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(72,30,31,0.3);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-video::before {
+  background: rgba(72,30,31,0.5);
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+  background: rgba(192,187,167,0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(179,160,153,0.4);
+}
+
+.service-card:hover .play-button {
+  transform: scale(1.1);
+  background: rgba(179,160,153,1);
+}
+
+.play-button::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 20px solid #481e1f;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 5px;
+}
+
+.service-content {
+  padding: 40px;
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(179,160,153,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.service-icon svg {
+  width: 35px;
+  height: 35px;
+  fill: #c0bba7;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon svg {
+  fill: #fff;
+  transform: scale(1.1);
+}
+
+.service-content h3 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #c0bba7;
+  margin-bottom: 15px;
+}
+
+.service-subtitle {
+  font-size: 18px;
+  color: #b3a099;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.service-description {
+  font-size: 17px;
+  color: #c0bba7;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+}
+
+.service-features p {
+  font-size: 16px;
+  color: #c0bba7;
+  margin-bottom: 12px;
+  padding-left: 0px;
+  position: relative;
+}
+
+/* Impact Section */
+.impact-section {
+  background: linear-gradient(135deg, rgba(192,187,167,0.95) 0%, rgba(179,160,153,0.98) 100%);
+  padding: 80px 60px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.impact-section h2 {
+  font-size: 56px;
+  font-weight: 900;
+  color: #481e1f;
+  margin-bottom: 15px;
+}
+
+.impact-subtitle {
+  font-size: 22px;
+  color: #6f5d53;
+  margin-bottom: 60px;
+  font-weight: 600;
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(72,30,31,0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(72,30,31,0.3);
+}
+
+.stat-number {
+  font-size: 72px;
+  font-weight: 900;
+  color: #481e1f;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
+.stat-card h3 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #6f5d53;
+  margin-bottom: 15px;
+}
+
+.stat-card p {
+  font-size: 16px;
+  color: #6f5d53;
+  line-height: 1.6;
+}
+
+/* ============ TEAM SECTION - PHOTO LAYOUT ============ */
+#team {
+  padding: 120px 60px;
+  background: linear-gradient(135deg, #481e1f 0%, #6f5d53 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-header {
+  margin-bottom: 80px;
+}
+
+.team-header h2 {
+  font-size: 56px;
+  font-weight: 900;
+  color: #c0bba7;
+  margin-bottom: 15px;
+}
+
+.team-subtitle {
+  font-size: 22px;
+  color: #cfa99b;
+  font-weight: 400;
+}
+
+.team-filmstrip {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(90deg, #efcea6 0%, #fce9c6 50%, #f7d2a5 100%);
+  z-index: 1;
+  box-shadow: 0 10px 40px rgba(255, 140, 0, 0.3);
+}
+
+.team-filmstrip::before,
+.team-filmstrip::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  background-image: repeating-gradient(
+    90deg,
+    transparent,
+    transparent 30px,
+    rgba(72, 30, 31, 0.4) 30px,
+    rgba(72, 30, 31, 0.4) 35px
+  );
+}
+
+.team-filmstrip::before {
+  top: 0;
+}
+
+.team-filmstrip::after {
+  bottom: 0;
+}
+
+.team-grid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+
+.team-member {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
+  animation: memberFadeIn 1s ease forwards;
+  background: #fff;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.team-member:nth-child(1) {
+  width: 320px;
+  height: 380px;
+  animation-delay: 0.2s;
+  margin-bottom: 40px;
+}
+
+.team-member:nth-child(2) {
+  width: 320px;
+  height: 450px;
+  animation-delay: 0.4s;
+  margin-bottom: 0px;
+}
+
+.team-member:nth-child(3) {
+  width: 320px;
+  height: 380px;
+  animation-delay: 0.6s;
+  margin-bottom: 40px;
+}
+
+@keyframes memberFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.team-member:hover {
+  transform: translateY(-20px) scale(1.05);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.team-member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.5s ease;
+  filter: grayscale(20%);
+}
+
+.team-member:hover img {
+  filter: grayscale(0%);
+}
+
+.ai-badge {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #4b3e32 0%, #636260 100%);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.team-member:hover .ai-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .team-grid {
+    flex-wrap: wrap;
+  }
+  
+  .team-member:nth-child(1),
+  .team-member:nth-child(3) {
+    margin-bottom: 0;
+  }
+}
+
+/* ============ CONTACT SECTION STYLES - NEW LAYOUT ============ */
+#contact {
+  padding: 120px 60px;
+  background: linear-gradient(135deg, #481e1f 0%, #6f5d53 100%);
+}
+
+.contact-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-heading {
+  font-size: 56px;
+  font-weight: 900;
+  color: #c0bba7;
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+/* Full Width Image */
+.contact-image-full {
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  margin-bottom: 60px;
+}
+
+.contact-image-full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Two Column Layout - Text Left, Form Right */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-info-text {
+  background: transparent;
+  padding: 0;
+}
+
+.contact-info-text h3 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #c0bba7;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.contact-info-text p {
+  font-size: 18px;
+  color: #c0bba7;
+  line-height: 1.6;
+}
+
+.contact-right {
+  background: linear-gradient(135deg, rgba(72,30,31,0.5) 0%, rgba(72,30,31,0.3) 100%);
+  padding: 50px;
+  border-radius: 20px;
+  border: 2px solid #b3a099;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 16px;
+  border: 2px solid #b3a099;
+  border-radius: 8px;
+  background: #c0bba7;
+  color: #481e1f;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(179,160,153,0.3);
+  border-color: #c0bba7;
+}
+
+.form-input::placeholder {
+  color: #6f5d53;
+}
+
+.submit-btn {
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #b3a099 0%, #c0bba7 100%);
+  color: #481e1f;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(179,160,153,0.4);
+}
+
+/* ============ FOOTER STYLES ============ */
+.film-strip {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(90deg, #481e1f 0%, #6f5d53 100%);
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid #c0bba7;
+  border-bottom: 4px solid #c0bba7;
+}
+
+.film-strip::before,
+.film-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 30px,
+    rgba(192,187,167,0.1) 30px,
+    rgba(192,187,167,0.1) 60px
+  );
+  animation: filmMove 3s linear infinite;
+}
+
+.film-strip::after {
+  animation-delay: -1.5s;
+}
+
+@keyframes filmMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(60px); }
+}
+
+.film-perforations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  pointer-events: none;
+}
+
+.perforation {
+  width: 20px;
+  height: 20px;
+  background: #481e1f;
+  border-radius: 3px;
+  animation: perfMove 3s linear infinite;
+}
+
+@keyframes perfMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
+}
+
+footer {
+  background: #481e1f;
+  padding: 60px 60px 30px 60px;
+  color: #c0bba7;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #c0bba7;
+  margin-bottom: 25px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #c0bba7;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #b3a099;
+}
+
+.contact-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-item {
+  margin-bottom: 20px;
+}
+
+.contact-item i {
+  color: #b3a099;
+  margin-right: 10px;
+}
+
+.contact-item a {
+  color: #c0bba7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #b3a099;
+}
+
+.location h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #c0bba7;
+  margin-bottom: 10px;
+}
+
+.location p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #b3a099;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(179,160,153,0.2);
+  border: 1px solid rgba(179,160,153,0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c0bba7;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #b3a099;
+  color: #481e1f;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(179,160,153,0.3);
+  padding-top: 30px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #b3a099;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .contact-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 48px;
+  }
+
+  nav {
+    top: 20px;
+    right: 20px;
+    transform: scale(0.8);
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-section,
+  .vision-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mission-image img,
+  .vision-image img {
+    max-width: 350px;
+  }
+
+  .team-grid {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .team-member {
+    width: 260px !important;
+    height: 330px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-logo img {
+    width: 220px;
+  }
+
+  #work,
+  #services,
+  #about,
+  #team {
+    padding: 60px 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-video {
+    height: 220px;
+  }
+
+  .mission-heading,
+  .vision-heading {
+    font-size: 32px;
+  }
+
+  .mission-text,
+  .vision-text {
+    font-size: 16px;
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .about-image-container {
+    width: 100%;
+  }
+
+  .about-text-container h3 {
+    font-size: 28px;
+  }
+
+  .team-grid {
+    flex-direction: column;
+  }
+
+  .team-member {
+    width: 260px !important;
+    height: 330px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#work">Our Work</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#upcoming">Upcoming</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<div class="hero-bg">
+    <img src="hero1.jpg" class="slide active">
+    <img src="hero2.jpg" class="slide">
+    <img src="hero3.jpg" class="slide">
+</div>
+<div class="overlay"></div>
+<div class="hero-logo"><img src="October sky_logo.png"></div>
+<div class="hero-line">A October Sky Crafting Cinematic Visual Stories.</div>
+<div class="hero-text">
+    <div class="hero-title october">October</div>
+    <div class="hero-title sky">Sky</div>
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+<h2 class="work-title">Our Work</h2>
+<div class="typing-container">
+  <p id="typingText"></p>
+</div>
+<div class="sketched-grid">
+<div class="block block1" style="background:url('work1.jpg') center/cover;"></div>
+<div class="block block2" style="background:url('work2.jpg') center/cover;"></div>
+<div class="block block3" style="background:url('work3.jpg') center/cover;"></div>
+<div class="block block4" style="background:url('work4.jpg') center/cover;"></div>
+<div class="block block5" style="background:url('work5.jpg') center/cover;"></div>
+<div class="block block6" style="background:url('work6.jpg') center/cover;"></div>
+<div class="block block7" style="background:url('work7.jpg') center/cover;"></div>
+<div class="block block8" style="background:url('work8.jpg') center/cover;"></div>
+<div class="block block9" style="background:url('work9.jpg') center/cover;"></div>
+<div class="block block10" style="background:url('work10.jpg') center/cover;"></div>
+<div class="block block11" style="background:url('work11.jpg') center/cover;"></div>
+<div class="block block12" style="background:url('work12.jpg') center/cover;"></div>
+</div>
+
+<div class="bs-yatra">
+<h3 class="yatra-title">Bharat Startup Yatra</h3>
+<p class="yatra-sub">Documenting India's entrepreneurial spirit — One city, one story at a time.</p>
+<div class="yatra-paras">
+<p class="yatra-text"><span class="highlight">Bharat Startup Yatra</span> is an ambitious documentary series that captures the pulse of India's startup ecosystem...</p>
+<p class="yatra-text">This journey is more than just filming startups – it's about understanding the cultural, economic, and social fabric...</p>
+<p class="yatra-text">Through intimate interviews, behind-the-scenes access, and cinematic storytelling...</p>
+</div>
+<div class="yatra-gallery">
+<div class="yatra-img" style="background-image:url('yatra1.jpg')"></div>
+<div class="yatra-img" style="background-image:url('yatra2.jpg')"></div>
+<div class="yatra-img" style="background-image:url('yatra3.jpg')"></div>
+<div class="yatra-img" style="background-image:url('yatra4.jpg')"></div>
+<div class="yatra-img" style="background-image:url('yatra5.jpg')"></div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT US -->
+<section id="about">
+<div class="about-heading">About Us</div>
+<div class="about-center-quote">"  Stories that resonate, impact that lasts.  "</div>
+<div class="about-wrapper">
+<div class="about-image-container">
+<img src="about1.jpg" alt="Artmonks Logo">
+</div>
+<div class="about-text-container">
+<span class="about-line"><h><span class="highlight">October Sky</span></h> is a production house dedicated to crafting cinematic stories that resonate deeply. With experience across commercials, digital films, and documentary storytelling, we bring creative visions to life with authenticity and passion.</span>
+<span class="about-line"></span>
+<span class="about-line">When we're not creating branded content, you'll find us making films that matter. Films that explore the human condition, celebrate culture, and capture untold stories. We go beyond the surface to create narratives that question, reflect, and inspire.</span>
+</div>
+</div>
+<div class="about-gallery">
+<div class="about-card" style="background-image:url('about2.jpg')"></div>
+<div class="about-card" style="background-image:url('about3.jpg')"></div>
+<div class="about-card" style="background-image:url('about4.jpg')"></div>
+<div class="about-card" style="background-image:url('about5.jpg')"></div>
+<div class="about-card" style="background-image:url('about6.jpg')"></div>
+</div>
+
+<!-- MISSION SECTION -->
+<div class="mission-section">
+<div class="mission-image">
+<img src="mission.jpg" alt="Production Team">
+</div>
+<div class="mission-content">
+<h2 class="mission-heading">OUR MISSION:</h2>
+<p class="mission-text">Our mission as a content production company is to artfully create stories, inspiring and connecting with audiences on a profound level. Through creative innovation and unwavering dedication to quality, we collaborate closely with clients, crafting emotionally impactful visual narratives that leave a lasting impression. Our commitment to diversity, adaptability, and professionalism guides us as we continuously evolve and make a positive impact in the communities we serve.</p>
+</div>
+</div>
+
+<!-- VISION SECTION -->
+<div class="vision-section">
+<div class="vision-content">
+<h2 class="vision-heading">OUR VISION:</h2>
+<p class="vision-text">Our portfolio of achievements stands as a testament to our dedication, and we take pride in having worked with 20+ industry-leading clients so far. Our vision is to be a leading force in the world of visual storytelling. We aspire to be known for our unparalleled creativity, exceptional craftsmanship, and the ability to evoke emotions that resonate deeply with audiences. By seamlessly blending brand stories with artistic finesse, we aim to transcend boundaries, setting new standards in video production for our clients. Our ultimate vision is to inspire, empower, and leave a lasting legacy through the captivating stories we tell.</p>
+</div>
+<div class="vision-image">
+<img src="vision.jpg" alt="Vision Illustration">
+</div>
+</div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  
+  <!-- Hero Banner -->
+  <div class="services-hero">
+    <h2>Our Services</h2>
+    <h3><p>Transform Your Vision Into Reality</p></h3>
+    <p>We bring your stories to life with professional film production services — from concept to the final frame, delivering films that captivate and inspire.</p>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="services-grid">
+    <!-- Service 1: Full Production -->
+    <div class="service-card">
+      <div class="service-video" style="background-image: url('https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1200&q=80');">
+        <div class="play-button"></div>
+      </div>
+      <div class="service-content">
+        <div class="service-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>
+</div>
+        <h3>Full Production</h3>
+        <p class="service-subtitle">From your first idea to the final masterpiece</p>
+        <p class="service-description">You have a vision — we handle the rest. Our end-to-end production service covers everything from concept development to final delivery, ensuring your story comes to life seamlessly.</p>
+        <div class="service-features">
+          <p>Expert directors of photography</p>
+          <p>Cinema-grade cameras & lenses</p>
+          <p>Professional lighting & audio</p>
+          <p>Visual style tailored to your brand</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 2: Script & Creative Development -->
+    <div class="service-card">
+      <div class="service-video" style="background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80');">
+        <div class="play-button"></div>
+      </div>
+      <div class="service-content">
+        <div class="service-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+</div>
+        <h3>Script & Creative Development</h3>
+        <p class="service-subtitle">Turn rough ideas into powerful narratives</p>
+        <p class="service-description">Have a concept but struggling to shape it? Our creative team transforms your vision into compelling scripts and storyboards that captivate from the first frame.</p>
+        <div class="service-features">
+          <p>Professional scriptwriting</p>
+          <p>Storyboard development</p>
+          <p>Creative consulting</p>
+          <p>Narrative structure design</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3: Cinematography & Equipment -->
+    <div class="service-card">
+      <div class="service-video" style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80');">
+        <div class="play-button"></div>
+      </div>
+      <div class="service-content">
+        <div class="service-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+</div>
+        <h3>Cinematography & Equipment</h3>
+        <p class="service-subtitle">Professional visuals that tell your story</p>
+        <p class="service-description">Elevate your project with cinematic visuals. We provide experienced cinematographers and cutting-edge equipment to ensure every frame looks stunning.</p>
+        <div class="service-features">
+          <p>Expert directors of photography</p>
+          <p>Cinema-grade cameras & lenses</p>
+          <p>Professional lighting & audio</p>
+          <p>Visual style tailored to your brand</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 4: Editing & Post-Production -->
+    <div class="service-card">
+      <div class="service-video" style="background-image: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80');">
+        <div class="play-button"></div>
+      </div>
+      <div class="service-content">
+        <div class="service-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 4l2 3h-3l-2-3h-2l2 3h-3l-2-3H8l2 3H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4zm-6.75 11.25L10 18l-1.25-2.75L6 14l2.75-1.25L10 10l1.25 2.75L14 14l-2.75 1.25zm5.69-3.31L16 14l-.94-2.06L13 11l2.06-.94L16 8l.94 2.06L19 11l-2.06.94z"/></svg>
+</div>
+        <h3>Editing & Post-Production</h3>
+        <p class="service-subtitle">Polish your footage into perfection</p>
+        <p class="service-description">Transform raw footage into a cinematic masterpiece. Our post-production team handles editing, color grading, sound design, and delivery in any format you need.</p>
+        <div class="service-features">
+          <p>Expert editing & pacing</p>
+          <p>Professional color grading</p>
+          <p>Sound design & mixing</p>
+          <p>Delivery in all formats</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact Section -->
+  <div class="impact-section">
+    <h2>Our Impact in Numbers</h2>
+    <p class="impact-subtitle">Delivering results that speak for themselves</p>
+    <div class="impact-stats">
+      <div class="stat-card">
+        <div class="stat-number">100+</div>
+        <h3>Projects Delivered</h3>
+        <p>Successfully completed films and branded content across India</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <h3>Happy Clients</h3>
+        <p>Brands and creators who trust us with their stories</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <h3>Awards Won</h3>
+        <p>Recognition at film festivals and industry events</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header">
+    <h2>Meet Our Team</h2>
+    <p class="team-subtitle">The Creative Minds Behind October Sky</p>
+  </div>
+  
+  <div class="team-filmstrip"></div>
+  
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=320&q=80" alt="Team Member 1">
+      <div class="ai-badge">DIRECTOR</div>
+    </div>
+    
+    <div class="team-member">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=320&q=80" alt="Team Member 2">
+      <div class="ai-badge">PRODUCER</div>
+    </div>
+    
+    <div class="team-member">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=320&q=80" alt="Team Member 3">
+      <div class="ai-badge">CINEMATOGRAPHER</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-container">
+    <h2 class="contact-heading">Contact Us</h2>
+    
+    <!-- Full Width Horizontal Image -->
+    <div class="contact-image-full">
+      <img src="contact1.jpg" alt="Contact October Sky">
+    </div>
+    
+    <!-- Two Column Layout: Text Left, Form Right -->
+    <div class="contact-layout">
+      <!-- Left Side - Text Only -->
+      <div class="contact-left">
+        <div class="contact-info-text">
+          <h3>LET'S CRAFT THE NEXT ICONIC STORY.</h3>
+          <p>Brands, businesses, dreamers, leaders, if you've got an idea, we're ready to turn it into a visual experience that sticks.</p>
+        </div>
+      </div>
+      
+      <!-- Right Side - Contact Form -->
+      <div class="contact-right">
+        <form class="contact-form">
+          <input type="text" class="form-input" placeholder="Your Name" required>
+          <input type="tel" class="form-input" placeholder="Phone Number" required>
+          <input type="text" class="form-input" placeholder="Company Name">
+          <input type="email" class="form-input" placeholder="Company Email" required>
+          <button type="submit" class="submit-btn">Schedule a Call</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM STRIP SEPARATOR 
+<div class="film-strip">
+  <div class="film-perforations">
+    <div class="perforation"></div>
+    <div class="perforation"></div>
+    <div class="perforation"></div>
+    <div class="perforation"></div>
+    <div class="perforation"></div>
+  </div>
+</div>-->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Career</a></li>
+        <li><a href="#work">Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    
+    <!-- Contact Details -->
+    <div class="footer-section">
+      <h3>Contact Details</h3>
+      <div class="contact-details">
+        <div>
+          <div class="contact-item">
+            <a href="tel:+919916814898">📞 +91 99168 14898</a>
+          </div>
+          <div class="contact-item">
+            <a href="mailto:contact@octobersky.com">✉️ contact@octobersky.com</a>
+          </div>
+          
+          <div class="location">
+            <h4>Bangalore</h4>
+            <p>#11, 6th Cross Road,<br>
+            ST Bed Layout<br>
+            Near Sony World Signal,<br>
+            Koramangala, Bangalore,<br>
+            Karnataka, India - 560095</p>
+          </div>
+        </div>
+        
+        <div>
+          <div class="location">
+            <h4>Mumbai</h4>
+            <p>10th Floor B<br>
+            NESCO IT Park (Tower 3,<br>
+            Western Express Highway,<br>
+            East), Goregaon<br>
+            Mumbai,<br>
+            Maharashtra</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Vimeo">V</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p> October Sky Made By Protea Digital.</p>
+  </div>
+</footer>
+
+<script>
+/* HERO SLIDER */
+let slides=document.querySelectorAll(".slide"); let i=0;
+setInterval(()=>{ slides[i].classList.remove("active"); i=(i+1)%slides.length; slides[i].classList.add("active"); },6000);
+
+/* HERO SHRINK */
+window.addEventListener("scroll", ()=>{ let hero=document.querySelector(".hero"); if(window.scrollY>80){hero.classList.add("shrink");} else{hero.classList.remove("shrink");} });
+
+/* TYPING EFFECT */
+let typingStarted=false; let typingText=document.getElementById("typingText");
+const typingObserver=new IntersectionObserver((entries)=>{entries.forEach(entry=>{ if(entry.isIntersecting&&!typingStarted){ typingStarted=true; typeWords();} });},{threshold:0.4});
+typingObserver.observe(typingText);
+let staticText="We create ";
+let rotatingWords=["cinematic short films", "branded stories", "documentaries", "digital production"];
+let currentWordIndex=0;
+function typeWords(){
+  typingText.innerHTML=staticText+"<span style='color:#b3a099;'>"+rotatingWords[currentWordIndex]+"</span>";
+  currentWordIndex=(currentWordIndex+1)%rotatingWords.length;
+  setTimeout(typeWords, 3000);
+}
+
+/* LETTER SHOWER EFFECT FOR QUOTE */
+const quoteText=document.getElementById("quoteText");
+if(quoteText){
+  const quoteMessage="Every frame tells a story, every story changes the world.";
+  quoteText.innerHTML='"';
+  quoteMessage.split('').forEach((char, index)=>{
+    const span=document.createElement('span');
+    span.className='quote-letter';
+    span.textContent=char;
+    span.style.setProperty('--index', index);
+    quoteText.appendChild(span);
+  });
+  quoteText.appendChild(document.createTextNode('"'));
+}
+
+/* YATRA CINEMATIC SCROLL */
+const yTitle=document.querySelector(".yatra-title");
+const ySub=document.querySelector(".yatra-sub");
+const yParas=document.querySelectorAll(".yatra-text");
+const yImgs=document.querySelectorAll(".yatra-img");
+const yatraObserver=new IntersectionObserver((entries)=>{entries.forEach(entry=>{ if(entry.isIntersecting){ yTitle.classList.add("show"); setTimeout(()=>ySub.classList.add("show"),400); yParas.forEach((p,idx)=>{setTimeout(()=>p.classList.add("show"),700+idx*300);}); yImgs.forEach((img,idx)=>{setTimeout(()=>img.classList.add("show"),1100+idx*300);}); } });},{threshold:0.3});
+yatraObserver.observe(yTitle);
+
+/* ABOUT US SCROLL ANIMATION WITH LINE REVEAL */
+const aboutDescriptions=document.querySelectorAll(".about-description");
+const aboutCards=document.querySelectorAll(".about-card");
+const aboutObserver=new IntersectionObserver((entries)=>{entries.forEach(entry=>{ if(entry.isIntersecting){ aboutDescriptions.forEach((p,idx)=>{ setTimeout(()=>{p.style.opacity=1;p.style.transform="translateY(0)";}, idx*400); }); aboutCards.forEach((card,idx)=>{ setTimeout(()=>{card.classList.add("show");}, 400+idx*300); }); } });},{threshold:0.3});
+aboutDescriptions.forEach(desc=>aboutObserver.observe(desc));
+aboutCards.forEach(card=>aboutObserver.observe(card));
+
+/* LINE-BY-LINE SCROLL REVEAL */
+const aboutLines=document.querySelectorAll(".about-line");
+const lineObserver=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        const rect=entry.target.getBoundingClientRect();
+        const elementTop=rect.top;
+        const elementBottom=rect.bottom;
+        const viewportHeight=window.innerHeight;
+        if(elementBottom<0 || elementTop>viewportHeight){
+            entry.target.style.opacity='0';
+            entry.target.style.transform='translateY(20px)';
+        } else {
+            entry.target.style.opacity='1';
+            entry.target.style.transform='translateY(0)';
+        }
+    });
+},{threshold:0});
+window.addEventListener('scroll', ()=>{
+    aboutLines.forEach(line=>{
+        const rect=line.getBoundingClientRect();
+        const elementTop=rect.top;
+        const elementBottom=rect.bottom;
+        const viewportHeight=window.innerHeight;
+        if(elementBottom<0 || elementTop>viewportHeight){
+            line.style.opacity='0';
+            line.style.transform='translateY(20px)';
+        } else {
+            line.style.opacity='1';
+            line.style.transform='translateY(0)';
+        }
+    });
+});
+aboutLines.forEach(line=>lineObserver.observe(line));
+
+/* MISSION & VISION TEXT SCROLL EFFECT */
+const missionText=document.querySelector(".mission-text");
+const visionText=document.querySelector(".vision-text");
+const textObserver=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.style.opacity=1; entry.target.style.transform="translateY(0)"; }
+        else{ entry.target.style.opacity=0; entry.target.style.transform="translateY(50px)"; }
+    });
+},{threshold:0.5});
+textObserver.observe(missionText);
+textObserver.observe(visionText);
+
+/* IMAGE MOUSE PARALLAX EFFECT */
+function parallaxEffect(imageContainer){
+    const img=imageContainer.querySelector("img");
+    imageContainer.addEventListener("mousemove", e=>{
+        const rect=imageContainer.getBoundingClientRect();
+        const x=(e.clientX - rect.left)/rect.width -0.5;
+        const y=(e.clientY - rect.top)/rect.height -0.5;
+        img.style.transform=`rotateY(${x*20}deg) rotateX(${-y*20}deg) scale(1.05)`;
+    });
+    imageContainer.addEventListener("mouseleave", e=>{
+        img.style.transform="rotateY(0deg) rotateX(0deg) scale(1)";
+    });
+}
+parallaxEffect(document.querySelector(".mission-image"));
+parallaxEffect(document.querySelector(".vision-image"));
+
+/* ANIMATED COUNTER FOR IMPACT NUMBERS */
+function animateCounter(element, target, duration) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target + '+';
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start) + '+';
+        }
+    }, 16);
+}
+
+const impactObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach((num, index) => {
+                const targets = [100, 50, 15];
+                setTimeout(() => {
+                    animateCounter(num, targets[index], 2000);
+                }, index * 200);
+            });
+            impactObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const impactSection = document.querySelector('.impact-section');
+if (impactSection) {
+    impactObserver.observe(impactSection);
+}
+</script>
+</body>
+</html>
