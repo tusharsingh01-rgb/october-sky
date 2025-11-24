@@ -1052,187 +1052,66 @@ footer {
 }
 
 /* ==================== MOBILE RESPONSIVE ==================== */
+/* ==================== MOBILE RESPONSIVE (UPDATED) ==================== */
 @media (max-width: 768px) {
 
-  body {
-    overflow-x: hidden;
-  }
+  body { overflow-x: hidden; }
 
-  /* HERO SECTION */
-  .hero {
-    height: 85vh;
-  }
+  section { padding: 50px 20px !important; }
 
-  .hero-logo img {
-    width: 180px;
-    top: 20px;
-    left: 20px;
-  }
+  /* HERO */
+  .hero { height: 75vh; }
+  .hero-title { font-size: 34px; }
+  .hero-logo img { width: 150px; }
 
-  .hero-text {
-    flex-direction: column;
-    gap: 10px;
-    bottom: 40px;
-  }
+  /* WORK */
+  #work { padding: 50px 20px !important; }
+  .sketched-grid { grid-template-columns: 1fr; gap: 15px; }
+  .block { height: 180px !important; }
 
-  .hero-title {
-    font-size: 42px;
-  }
-
-  .hero-line {
-    top: 40%;
-    left: 20px;
-    font-size: 16px;
-    width: 200px;
-  }
-
-  /* WORK GRID (4 → 1 column) */
-  .sketched-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .block {
-    height: 250px !important;
-  }
+  .typing-container { margin: 20px 0; }
 
   /* BHARAT STARTUP YATRA */
-  .yatra-title {
-    font-size: 36px;
-  }
+  .yatra-title { font-size: 30px; margin-bottom: 10px; }
+  .yatra-paras { width: 100%; margin-top: 20px; }
+  .yatra-img { height: 180px !important; width: 100% !important; }
 
-  .yatra-sub {
-    font-size: 18px;
-  }
+  /* ABOUT */
+  #about { padding: 50px 20px !important; }
+  .about-wrapper { flex-direction: column; padding: 20px; gap: 20px; }
+  .about-image-container { width: 100%; }
+  .about-card { width: 140px; height: 180px; }
 
-  .yatra-paras {
-    width: 100%;
+  /* MISSION / VISION */
+  .mission-section, .vision-section {
+      flex-direction: column;
+      padding: 40px 20px !important;
+      gap: 20px;
+      text-align: center;
   }
+  .mission-heading, .vision-heading { font-size: 30px; }
 
-  .yatra-gallery {
-    width: 100%;
-  }
+  /* SERVICES */
+  .services-grid { grid-template-columns: 1fr; gap: 25px; }
+  .service-video { height: 180px; }
 
-  .yatra-img {
-    height: 220px;
-    width: 100% !important;
-  }
+  /* IMPACT */
+  .impact-section { padding: 50px 20px !important; }
+  .impact-stats { grid-template-columns: 1fr; gap: 20px; }
+  .stat-card { padding: 30px 20px; }
+  .stat-number { font-size: 42px; }
 
-  /* ABOUT SECTION */
-  #about {
-    padding: 80px 30px;
-  }
+  /* TEAM */
+  .team-grid { flex-direction: column; gap: 20px; }
+  .team-member { height: 260px !important; width: 100% !important; }
 
-  .about-heading {
-    font-size: 42px;
-  }
+  /* CONTACT */
+  .contact-layout { grid-template-columns: 1fr; gap: 30px; }
+  .contact-image-full { height: 250px; }
 
-  .about-wrapper {
-    flex-direction: column;
-    padding: 30px;
-    gap: 40px;
-  }
-
-  .about-image-container {
-    width: 100%;
-  }
-
-  .about-text-container h3 {
-    font-size: 30px;
-  }
-
-  .about-text-container p {
-    font-size: 16px;
-  }
-
-  .about-gallery {
-    gap: 20px;
-  }
-
-  .about-card {
-    width: 160px;
-    height: 220px;
-  }
-
-  /* MISSION — STACKED */
-  .mission-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
-    padding: 60px 20px;
-  }
-
-  .mission-heading {
-    font-size: 36px;
-  }
-
-  .mission-text {
-    font-size: 16px;
-  }
-
-  /* VISION — STACKED */
-  .vision-section {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 40px;
-    padding: 60px 20px;
-  }
-
-  .vision-heading {
-    font-size: 36px;
-  }
-
-  .vision-text {
-    font-size: 16px;
-  }
-
-  /* SERVICES GRID 2 → 1 COLUMN */
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-video {
-    height: 230px;
-  }
-
-  .service-content {
-    padding: 25px;
-  }
-
-  .service-content h3 {
-    font-size: 26px;
-  }
-
-  /* IMPACT GRID 3 → 1 COLUMN */
-  .impact-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-number {
-    font-size: 56px;
-  }
-
-  /* TEAM SECTION */
-  .team-grid {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .team-member {
-    width: 90% !important;
-    height: 320px !important;
-    margin-bottom: 0 !important;
-  }
-
-  /* NAVIGATION */
-  nav {
-    top: 20px;
-    right: 20px;
-  }
-
-  nav ul li a {
-    font-size: 16px;
-    padding: 8px 12px;
-  }
+  /* NAV */
+  nav { top: 10px; right: 10px; }
+  nav ul li a { padding: 6px 10px; font-size: 14px; }
 }
 
 
