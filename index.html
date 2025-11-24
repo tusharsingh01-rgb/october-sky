@@ -1072,23 +1072,21 @@ footer {
     object-fit: cover;
   }
 
-  /* FIXED – Line Text Proper Centered */
+  /* ★ FIXED — Center Line Text Properly */
   .hero-line { 
-    top: auto; 
-    bottom: 160px; 
+    position: absolute;
+    bottom: 150px;
     left: 50%; 
     transform: translateX(-50%); 
-    width: 90%; 
+    width: 92%; 
     text-align: center; 
     font-size: 18px;
     line-height: 1.6;
-    display: block;
     white-space: normal;
   }
   
   .hero-title { 
     font-size: 52px; 
-    letter-spacing: 0px;
     text-shadow: 0 0 15px rgba(234, 228, 194, 0.9), 0 0 30px rgba(241, 239, 228, 0.6);
   }
   
@@ -1108,20 +1106,37 @@ footer {
     gap: 15px;
     justify-content: center;
   }
-  
-  .hero.shrink {
-    transform: scale(1);
-    opacity: 1;
+
+  /* SIMPLE NAVIGATION (CLEAN & CENTERED) */
+  nav { 
+    position: fixed;
+    top: 18px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
   }
-  
-  .hero.shrink .october,
-  .hero.shrink .sky {
-    transform: translateX(0);
-    opacity: 1;
+
+  nav ul { 
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 10px 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+  }
+
+  nav ul li a { 
+    padding: 8px 12px; 
+    font-size: 14px; 
+    border-radius: 10px; 
+    white-space: nowrap;
   }
 
 
-  /* ========== WORK SECTION ========== */
+  /* ========== WORK ========== */
   #work { 
     padding: 60px 25px !important; 
   }
@@ -1142,7 +1157,6 @@ footer {
     line-height: 1.4;
   }
 
-  /* FIXED → WORK SLIDES (MOBILE SLIDER) */
   .sketched-grid { 
     display: flex;
     overflow-x: auto;
@@ -1210,66 +1224,50 @@ footer {
   }
 
 
-  /* ========== ABOUT SECTION ========== */
+  /* ========== ABOUT (IMPROVED SPACING) ========== */
   #about { 
     padding: 60px 25px !important; 
   }
   
   .about-heading { 
     font-size: 40px; 
-    margin-bottom: 25px; 
+    margin-bottom: 30px; 
+    text-align: center;
   }
-  
-  .about-center-quote { 
-    font-size: 30px; 
-    margin: 45px auto; 
-    padding: 0 15px; 
-    line-height: 1.5; 
-  }
-  
+
   .about-wrapper { 
+    display: flex;
     flex-direction: column; 
-    padding: 35px 25px; 
-    gap: 35px; 
-    margin: 45px auto; 
+    padding: 25px 15px; 
+    gap: 28px; 
+    margin: 40px auto; 
   }
   
   .about-image-container img { 
-    border-radius: 16px; 
     width: 100%;
-    height: auto;
+    border-radius: 18px;
+    margin-bottom: 10px;
   }
   
+  .about-text-container { 
+    text-align: center;
+    padding: 0 10px;
+  }
+
   .about-text-container h3 { 
-    font-size: 30px; 
-    margin-bottom: 22px;
-    line-height: 1.4;
+    font-size: 28px; 
+    margin-bottom: 15px;
   }
   
   .about-text-container p { 
-    font-size: 16px; 
-    line-height: 1.8; 
+    font-size: 15px; 
+    line-height: 1.7; 
   }
-  
+
   .about-gallery { 
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px; 
-    margin-top: 50px; 
-    width: 100%;
-  }
-  
-  .about-card { 
-    width: 100%; 
-    height: 220px; 
-    border-radius: 14px;
-    background-size: cover !important;
-    background-position: center !important;
-  }
-  
-  .about-card:nth-child(5) {
-    grid-column: 1 / -1;
-    height: 200px;
+    gap: 16px; 
+    margin-top: 40px; 
   }
 
 
@@ -1279,180 +1277,70 @@ footer {
     flex-direction: column;
     padding: 50px 25px !important;
     gap: 30px;
-    text-align: left;
     margin-top: 40px;
   }
-  
-  .mission-heading, 
-  .vision-heading { 
+
+  .mission-heading, .vision-heading { 
     font-size: 32px; 
-    margin-bottom: 20px; 
+    margin-bottom: 12px; 
+    text-align: center;
   }
-  
-  .mission-text, 
-  .vision-text { 
-    font-size: 16px; 
-    line-height: 1.7; 
+
+  .mission-text, .vision-text {
+    text-align: center;
   }
-  
+
   .mission-image img, 
   .vision-image img { 
-    max-width: 100%; 
+    width: 100%; 
     border-radius: 16px; 
   }
-  
+
   .vision-section { 
     flex-direction: column-reverse; 
   }
 
 
   /* ========== SERVICES ========== */
-  .services-hero h2 { 
-    font-size: 38px; 
-    margin-bottom: 15px; 
-  }
-  
-  .services-hero p { 
-    font-size: 16px; 
-    padding: 0 10px; 
-  }
-  
   .services-grid { 
     grid-template-columns: 1fr; 
     gap: 30px; 
-    margin-bottom: 60px; 
   }
   
   .service-video { 
     height: 240px; 
   }
   
-  .service-content { 
-    padding: 30px 25px; 
-  }
-  
   .service-content h3 { 
     font-size: 26px; 
-  }
-  
-  .service-subtitle { 
-    font-size: 16px; 
-  }
-  
-  .service-description { 
-    font-size: 15px; 
   }
 
 
   /* ========== IMPACT ========== */
-  .impact-section { 
-    padding: 60px 25px !important; 
-    border-radius: 20px; 
-  }
-  
-  .impact-section h2 { 
-    font-size: 38px; 
-    margin-bottom: 10px; 
-  }
-  
-  .impact-subtitle { 
-    font-size: 18px; 
-    margin-bottom: 40px; 
-  }
-  
   .impact-stats { 
     grid-template-columns: 1fr; 
-    gap: 25px; 
-  }
-  
-  .stat-card { 
-    padding: 35px 25px; 
-    border-radius: 16px; 
-  }
-  
-  .stat-number { 
-    font-size: 52px; 
-    margin-bottom: 12px; 
   }
 
 
-  /* ========== TEAM SECTION — FIXED ========== */
+  /* ========== TEAM ========== */
   #team { 
     padding: 60px 25px !important; 
   }
   
-  .team-header h2 { 
-    font-size: 36px; 
-    margin-bottom: 10px; 
-    text-align: center;
-  }
-  
-  .team-subtitle { 
-    font-size: 17px; 
-    text-align: center;
-  }
-  
-  .team-filmstrip { 
-    height: 70px; 
-  }
-  
-  .team-grid { 
-    display: flex;
-    flex-direction: column; 
-    gap: 25px; 
-    align-items: center; 
-  }
-  
   .team-member { 
-    width: 100% !important; 
     max-width: 280px; 
-    height: auto !important; 
-    margin-bottom: 0 !important; 
-    border-radius: 16px;
-    overflow: hidden;
+    border-radius: 18px;
   }
 
   .team-member img {
-    width: 100%;
     height: 300px;
     object-fit: cover;
   }
 
 
-  /* ========== CONTACT ========== */
-  #contact { 
-    padding: 60px 25px !important; 
-  }
-
-
-  /* ========== FOOTER ========== */
-  .film-strip { 
-    height: 60px; 
-  }
-  
-  footer { 
-    padding: 40px 25px 20px 25px; 
-  }
-
-
-  /* ========== NAV FIXED — No Overlap ========== */
-  nav { 
-    top: 15px; 
-    right: 15px; 
-  }
-  
-  nav ul { 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; 
-    justify-content: center;
-  }
-  
-  nav ul li a { 
-    padding: 8px 14px; 
-    font-size: 14px; 
-    border-radius: 10px; 
-    white-space: nowrap;
+  /* ========== CONTACT & FOOTER ========== */
+  footer {
+    padding: 40px 25px;
   }
 }
 
@@ -1985,5 +1873,6 @@ if (impactSection) {
 </script>
 </body>
 </html>
+
 
 
