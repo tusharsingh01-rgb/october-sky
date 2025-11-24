@@ -1088,17 +1088,24 @@ footer {
     width: 220px; 
   }
   
-  .hero-line { 
-    top: auto; 
-    bottom: 160px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 85%; 
-    text-align: center; 
-    font-size: 17px;
-    line-height: 1.5;
-    opacity: 1;
-  }
+ .hero-line {
+  white-space: normal;
+  text-align: center;
+  width: 90%;
+  line-height: 1.4;
+  display: block;
+  padding: 0 15px;
+  z-index: 10;
+}
+
+nav {
+  z-index: 9999;
+}
+
+.hero-title, .hero-line {
+  position: relative;
+  z-index: 5;
+}
   
   .hero-text { 
     bottom: 50px; 
@@ -1139,17 +1146,19 @@ footer {
     line-height: 1.4;
   }
   
-  .sketched-grid { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 15px; 
-  }
-  
-  .block { 
-    height: 280px !important; 
-    border-radius: 14px;
-    background-size: cover !important;
-    background-position: center !important;
-  }
+  .sketched-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.block {
+  height: 220px !important;
+  border-radius: 14px;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
 
   /* ========== BHARAT STARTUP YATRA ========== */
   .bs-yatra { 
@@ -1399,16 +1408,21 @@ footer {
     align-items: center; 
   }
   
-  .team-member { 
-    width: 100% !important; 
-    max-width: 320px; 
-    height: 380px !important; 
-    margin-bottom: 0 !important; 
-  }
-  
-  .team-member:nth-child(2) { 
-    height: 380px !important; 
-  }
+ .team-member {
+  width: 100% !important;
+  max-width: 300px;
+  height: auto !important;
+  aspect-ratio: 3/4;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.team-member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
   /* ========== CONTACT ========== */
   #contact { 
@@ -2059,4 +2073,5 @@ if (impactSection) {
 </script>
 </body>
 </html>
+
 
