@@ -1052,77 +1052,444 @@ footer {
 }
 
 /* ==================== MOBILE RESPONSIVE ==================== */
-/* ==================== MOBILE RESPONSIVE (UPDATED) ==================== */
 @media (max-width: 768px) {
 
-  body { overflow-x: hidden; }
+  body { 
+    overflow-x: hidden; 
+  }
 
-  section { padding: 50px 20px !important; }
+  section { 
+    padding: 60px 25px !important; 
+  }
 
-  /* HERO */
-  .hero { height: 75vh; }
-  .hero-title { font-size: 34px; }
-  .hero-logo img { width: 150px; }
+  /* ========== HERO ========== */
+  .hero { 
+    height: 100vh; 
+  }
+  
+  .hero-title { 
+    font-size: 48px; 
+    letter-spacing: 1px;
+  }
+  
+  .hero-logo { 
+    top: 20px; 
+    left: 20px; 
+  }
+  
+  .hero-logo img { 
+    width: 200px; 
+  }
+  
+  .hero-line { 
+    top: auto; 
+    bottom: 140px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 90%; 
+    text-align: center; 
+    font-size: 16px; 
+  }
+  
+  .hero-text { 
+    bottom: 40px; 
+    flex-direction: column; 
+    gap: 0; 
+  }
 
-  /* WORK */
-  #work { padding: 50px 20px !important; }
-  .sketched-grid { grid-template-columns: 1fr; gap: 15px; }
-  .block { height: 180px !important; }
+  /* ========== WORK SECTION ========== */
+  #work { 
+    padding: 60px 25px !important; 
+  }
+  
+  .work-title { 
+    font-size: 38px; 
+    margin-bottom: 15px; 
+  }
+  
+  .typing-container { 
+    margin: 30px 0 40px 0; 
+    min-height: 80px; 
+  }
+  
+  #typingText { 
+    font-size: 22px; 
+    padding: 20px 15px; 
+  }
+  
+  .sketched-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+  }
+  
+  .block { 
+    height: 240px !important; 
+    border-radius: 16px;
+  }
 
-  .typing-container { margin: 20px 0; }
+  /* ========== BHARAT STARTUP YATRA ========== */
+  .bs-yatra { 
+    margin-top: 80px; 
+  }
+  
+  .yatra-title { 
+    font-size: 36px; 
+    margin-bottom: 15px; 
+    line-height: 1.2;
+  }
+  
+  .yatra-sub { 
+    font-size: 18px; 
+    padding: 0 10px; 
+  }
+  
+  .yatra-paras { 
+    width: 100%; 
+    margin-top: 30px; 
+  }
+  
+  .yatra-paras p { 
+    font-size: 16px; 
+    line-height: 1.7; 
+    margin-bottom: 18px; 
+  }
+  
+  .yatra-gallery { 
+    width: 100%; 
+    margin: 50px auto 0; 
+    gap: 25px; 
+  }
+  
+  .yatra-img { 
+    height: 220px !important; 
+    width: 100% !important; 
+    margin: 0 !important; 
+    border-radius: 16px;
+  }
 
-  /* BHARAT STARTUP YATRA */
-  .yatra-title { font-size: 30px; margin-bottom: 10px; }
-  .yatra-paras { width: 100%; margin-top: 20px; }
-  .yatra-img { height: 180px !important; width: 100% !important; }
+  /* ========== ABOUT SECTION ========== */
+  #about { 
+    padding: 60px 25px !important; 
+  }
+  
+  .about-heading { 
+    font-size: 38px; 
+    margin-bottom: 20px; 
+  }
+  
+  .about-center-quote { 
+    font-size: 28px; 
+    margin: 40px auto; 
+    padding: 0 10px; 
+    line-height: 1.4; 
+  }
+  
+  .about-wrapper { 
+    flex-direction: column; 
+    padding: 30px 20px; 
+    gap: 30px; 
+    margin: 40px auto; 
+  }
+  
+  .about-image-container { 
+    flex: 1; 
+    width: 100%; 
+  }
+  
+  .about-image-container img { 
+    border-radius: 16px; 
+  }
+  
+  .about-text-container h3 { 
+    font-size: 28px; 
+    margin-bottom: 20px; 
+  }
+  
+  .about-text-container p { 
+    font-size: 16px; 
+    line-height: 1.7; 
+  }
+  
+  .about-gallery { 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: 40px; 
+  }
+  
+  .about-card { 
+    width: calc(50% - 10px); 
+    height: 200px; 
+    border-radius: 12px;
+  }
 
-  /* ABOUT */
-  #about { padding: 50px 20px !important; }
-  .about-wrapper { flex-direction: column; padding: 20px; gap: 20px; }
-  .about-image-container { width: 100%; }
-  .about-card { width: 140px; height: 180px; }
-
-  /* MISSION / VISION */
+  /* ========== MISSION & VISION ========== */
   .mission-section, .vision-section {
-      flex-direction: column;
-      padding: 40px 20px !important;
-      gap: 20px;
-      text-align: center;
+    flex-direction: column;
+    padding: 50px 25px !important;
+    gap: 30px;
+    text-align: left;
+    margin-top: 40px;
   }
-  .mission-heading, .vision-heading { font-size: 30px; }
-
-  /* SERVICE CARDS HEIGHT SMALLER */
-  .service-video {
-      height: 160px !important;
+  
+  .mission-heading, .vision-heading { 
+    font-size: 32px; 
+    margin-bottom: 20px; 
+  }
+  
+  .mission-text, .vision-text { 
+    font-size: 16px; 
+    line-height: 1.7; 
+  }
+  
+  .mission-image img, .vision-image img { 
+    max-width: 100%; 
+    border-radius: 16px; 
+  }
+  
+  .vision-section { 
+    flex-direction: column-reverse; 
   }
 
-  .service-content {
-      padding: 20px !important;
+  /* ========== SERVICES ========== */
+  .services-hero h2 { 
+    font-size: 38px; 
+    margin-bottom: 15px; 
+  }
+  
+  .services-hero h3 p { 
+    font-size: 18px; 
+  }
+  
+  .services-hero p { 
+    font-size: 16px; 
+    padding: 0 10px; 
+  }
+  
+  .services-grid { 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+    margin-bottom: 60px; 
+  }
+  
+  .service-video { 
+    height: 240px; 
+  }
+  
+  .service-content { 
+    padding: 30px 25px; 
+  }
+  
+  .service-content h3 { 
+    font-size: 26px; 
+  }
+  
+  .service-subtitle { 
+    font-size: 16px; 
+  }
+  
+  .service-description { 
+    font-size: 15px; 
+  }
+  
+  .service-features p { 
+    font-size: 14px; 
   }
 
-  .service-card {
-      border-radius: 16px !important;
+  /* ========== IMPACT ========== */
+  .impact-section { 
+    padding: 60px 25px !important; 
+    border-radius: 20px; 
   }
-}
+  
+  .impact-section h2 { 
+    font-size: 38px; 
+    margin-bottom: 10px; 
+  }
+  
+  .impact-subtitle { 
+    font-size: 18px; 
+    margin-bottom: 40px; 
+  }
+  
+  .impact-stats { 
+    grid-template-columns: 1fr; 
+    gap: 25px; 
+  }
+  
+  .stat-card { 
+    padding: 35px 25px; 
+    border-radius: 16px; 
+  }
+  
+  .stat-number { 
+    font-size: 52px; 
+    margin-bottom: 12px; 
+  }
+  
+  .stat-card h3 { 
+    font-size: 22px; 
+    margin-bottom: 12px; 
+  }
+  
+  .stat-card p { 
+    font-size: 15px; 
+  }
 
+  /* ========== TEAM ========== */
+  #team { 
+    padding: 60px 25px !important; 
+  }
+  
+  .team-header h2 { 
+    font-size: 38px; 
+    margin-bottom: 10px; 
+  }
+  
+  .team-subtitle { 
+    font-size: 18px; 
+  }
+  
+  .team-filmstrip { 
+    height: 80px; 
+  }
+  
+  .team-grid { 
+    flex-direction: column; 
+    gap: 30px; 
+    align-items: center; 
+  }
+  
+  .team-member { 
+    width: 100% !important; 
+    max-width: 320px; 
+    height: 380px !important; 
+    margin-bottom: 0 !important; 
+  }
+  
+  .team-member:nth-child(2) { 
+    height: 380px !important; 
+  }
 
-  /* IMPACT */
-  .impact-section { padding: 50px 20px !important; }
-  .impact-stats { grid-template-columns: 1fr; gap: 20px; }
-  .stat-card { padding: 30px 20px; }
-  .stat-number { font-size: 42px; }
+  /* ========== CONTACT ========== */
+  #contact { 
+    padding: 60px 25px !important; 
+  }
+  
+  .contact-heading { 
+    font-size: 38px; 
+    margin-bottom: 40px; 
+  }
+  
+  .contact-image-full { 
+    height: 240px; 
+    border-radius: 16px; 
+    margin-bottom: 40px; 
+  }
+  
+  .contact-layout { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+  }
+  
+  .contact-info-text h3 { 
+    font-size: 28px; 
+    margin-bottom: 15px; 
+    line-height: 1.3; 
+  }
+  
+  .contact-info-text p { 
+    font-size: 16px; 
+    line-height: 1.6; 
+  }
+  
+  .contact-right { 
+    padding: 35px 25px; 
+    border-radius: 16px; 
+  }
+  
+  .form-input { 
+    padding: 16px 20px; 
+    font-size: 15px; 
+  }
+  
+  .submit-btn { 
+    padding: 16px 35px; 
+    font-size: 16px; 
+    width: 100%; 
+    text-align: center; 
+  }
 
-  /* TEAM */
-  .team-grid { flex-direction: column; gap: 20px; }
-  .team-member { height: 260px !important; width: 100% !important; }
+  /* ========== FOOTER ========== */
+  .film-strip { 
+    height: 60px; 
+  }
+  
+  footer { 
+    padding: 40px 25px 20px 25px; 
+  }
+  
+  .footer-content { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+    margin-bottom: 30px; 
+  }
+  
+  .footer-section h3 { 
+    font-size: 20px; 
+    margin-bottom: 18px; 
+  }
+  
+  .footer-links li { 
+    margin-bottom: 10px; 
+  }
+  
+  .footer-links a { 
+    font-size: 15px; 
+  }
+  
+  .contact-details { 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+  }
+  
+  .location h4 { 
+    font-size: 17px; 
+  }
+  
+  .location p { 
+    font-size: 14px; 
+  }
+  
+  .social-icons { 
+    justify-content: center; 
+    margin-top: 20px; 
+  }
+  
+  .footer-bottom { 
+    padding-top: 20px; 
+  }
+  
+  .footer-bottom p { 
+    font-size: 13px; 
+  }
 
-  /* CONTACT */
-  .contact-layout { grid-template-columns: 1fr; gap: 30px; }
-  .contact-image-full { height: 250px; }
-
-  /* NAV */
-  nav { top: 10px; right: 10px; }
-  nav ul li a { padding: 6px 10px; font-size: 14px; }
+  /* ========== NAVIGATION ========== */
+  nav { 
+    top: 15px; 
+    right: 15px; 
+  }
+  
+  nav ul { 
+    gap: 10px; 
+  }
+  
+  nav ul li a { 
+    padding: 8px 14px; 
+    font-size: 14px; 
+    border-radius: 10px; 
+  }
 }
 
 
@@ -1654,4 +2021,3 @@ if (impactSection) {
 </script>
 </body>
 </html>
-
