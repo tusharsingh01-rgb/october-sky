@@ -1051,89 +1051,85 @@ footer {
   }
 }
 
-/* ================= RESPONSIVE ================= */
+/* ==================== MOBILE RESPONSIVE ==================== */
+@media (max-width: 768px) {
 
-/* Tablets */
-@media (max-width: 992px) {
-  .hero-title {
-    font-size: 48px;
-  }
-
-  nav {
-    top: 20px;
-    right: 20px;
-    transform: scale(0.8);
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .mission-section,
-  .vision-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .mission-image img,
-  .vision-image img {
-    max-width: 350px;
-  }
-
-  .team-grid {
-    flex-wrap: wrap;
-    gap: 40px;
-  }
-
-  .team-member {
-    width: 260px !important;
-    height: 330px !important;
-    margin-bottom: 20px !important;
-  }
-}
-
-/* Mobile Phones */
-@media (max-width: 600px) {
   body {
-    padding: 0;
+    overflow-x: hidden;
   }
 
-  .hero-title {
-    font-size: 36px;
+  /* HERO SECTION */
+  .hero {
+    height: 85vh;
   }
 
   .hero-logo img {
-    width: 220px;
+    width: 180px;
+    top: 20px;
+    left: 20px;
   }
 
-  #work,
-  #services,
-  #about,
-  #team {
-    padding: 60px 20px;
+  .hero-text {
+    flex-direction: column;
+    gap: 10px;
+    bottom: 40px;
   }
 
-  .services-grid {
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-line {
+    top: 40%;
+    left: 20px;
+    font-size: 16px;
+    width: 200px;
+  }
+
+  /* WORK GRID (4 → 1 column) */
+  .sketched-grid {
     grid-template-columns: 1fr;
   }
 
-  .service-video {
+  .block {
+    height: 250px !important;
+  }
+
+  /* BHARAT STARTUP YATRA */
+  .yatra-title {
+    font-size: 36px;
+  }
+
+  .yatra-sub {
+    font-size: 18px;
+  }
+
+  .yatra-paras {
+    width: 100%;
+  }
+
+  .yatra-gallery {
+    width: 100%;
+  }
+
+  .yatra-img {
     height: 220px;
+    width: 100% !important;
   }
 
-  .mission-heading,
-  .vision-heading {
-    font-size: 32px;
+  /* ABOUT SECTION */
+  #about {
+    padding: 80px 30px;
   }
 
-  .mission-text,
-  .vision-text {
-    font-size: 16px;
+  .about-heading {
+    font-size: 42px;
   }
 
   .about-wrapper {
     flex-direction: column;
     padding: 30px;
+    gap: 40px;
   }
 
   .about-image-container {
@@ -1141,18 +1137,104 @@ footer {
   }
 
   .about-text-container h3 {
-    font-size: 28px;
+    font-size: 30px;
   }
 
+  .about-text-container p {
+    font-size: 16px;
+  }
+
+  .about-gallery {
+    gap: 20px;
+  }
+
+  .about-card {
+    width: 160px;
+    height: 220px;
+  }
+
+  /* MISSION — STACKED */
+  .mission-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 60px 20px;
+  }
+
+  .mission-heading {
+    font-size: 36px;
+  }
+
+  .mission-text {
+    font-size: 16px;
+  }
+
+  /* VISION — STACKED */
+  .vision-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+    padding: 60px 20px;
+  }
+
+  .vision-heading {
+    font-size: 36px;
+  }
+
+  .vision-text {
+    font-size: 16px;
+  }
+
+  /* SERVICES GRID 2 → 1 COLUMN */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-video {
+    height: 230px;
+  }
+
+  .service-content {
+    padding: 25px;
+  }
+
+  .service-content h3 {
+    font-size: 26px;
+  }
+
+  /* IMPACT GRID 3 → 1 COLUMN */
+  .impact-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 56px;
+  }
+
+  /* TEAM SECTION */
   .team-grid {
     flex-direction: column;
+    gap: 40px;
   }
 
   .team-member {
-    width: 260px !important;
-    height: 330px !important;
+    width: 90% !important;
+    height: 320px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* NAVIGATION */
+  nav {
+    top: 20px;
+    right: 20px;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+    padding: 8px 12px;
   }
 }
+
 
 </style>
 </head>
