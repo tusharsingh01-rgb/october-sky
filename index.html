@@ -1091,9 +1091,20 @@ footer {
   }
   .mission-heading, .vision-heading { font-size: 30px; }
 
-  /* SERVICES */
-  .services-grid { grid-template-columns: 1fr; gap: 25px; }
-  .service-video { height: 180px; }
+  /* SERVICE CARDS HEIGHT SMALLER */
+  .service-video {
+      height: 160px !important;
+  }
+
+  .service-content {
+      padding: 20px !important;
+  }
+
+  .service-card {
+      border-radius: 16px !important;
+  }
+}
+
 
   /* IMPACT */
   .impact-section { padding: 50px 20px !important; }
@@ -1643,3 +1654,4 @@ if (impactSection) {
 </script>
 </body>
 </html>
+
