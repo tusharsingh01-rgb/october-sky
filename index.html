@@ -82,7 +82,7 @@ border-radius:12px;
 .highlight { color: #b3a099; font-weight: 900; }
 .yatra-sub { font-size:22px; margin-top:18px; color:#c0bba7; opacity:0; transform:translateY(40px); }
 .yatra-sub.show { animation:fadeUp 1.3s ease forwards; }
-.yatra-paras { width:70%; margin:40px auto 0 auto; text-align:left; }
+.yatra-paras { width:70%; margin:40px auto 0 auto; text-align:center; }
 .yatra-paras p { font-size:18px; line-height:1.7; color:#c0bba7; margin-bottom:20px; opacity:0; transform:translateY(50px); }
 .yatra-paras p.show { animation:fadeUp 1.3s ease forwards; }
 @keyframes fadeUp { 0% { opacity:0; transform:translateY(50px); } 100% { opacity:1; transform:translateY(0); } }
@@ -1071,6 +1071,20 @@ footer {
     transform: scale(1);
     object-fit: cover;
   }
+
+  /* FIXED – Line Text Proper Centered */
+  .hero-line { 
+    top: auto; 
+    bottom: 160px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 90%; 
+    text-align: center; 
+    font-size: 18px;
+    line-height: 1.6;
+    display: block;
+    white-space: normal;
+  }
   
   .hero-title { 
     font-size: 52px; 
@@ -1087,25 +1101,6 @@ footer {
   .hero-logo img { 
     width: 220px; 
   }
-  
- .hero-line {
-  white-space: normal;
-  text-align: center;
-  width: 90%;
-  line-height: 1.4;
-  display: block;
-  padding: 0 15px;
-  z-index: 10;
-}
-
-nav {
-  z-index: 9999;
-}
-
-.hero-title, .hero-line {
-  position: relative;
-  z-index: 5;
-}
   
   .hero-text { 
     bottom: 50px; 
@@ -1124,6 +1119,7 @@ nav {
     transform: translateX(0);
     opacity: 1;
   }
+
 
   /* ========== WORK SECTION ========== */
   #work { 
@@ -1145,19 +1141,28 @@ nav {
     padding: 20px 15px; 
     line-height: 1.4;
   }
-  
-  .sketched-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
 
-.block {
-  height: 220px !important;
-  border-radius: 14px;
-  background-position: center !important;
-  background-size: cover !important;
-}
+  /* FIXED → WORK SLIDES (MOBILE SLIDER) */
+  .sketched-grid { 
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .sketched-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .block { 
+    min-width: 65%;
+    height: 260px !important; 
+    border-radius: 16px;
+    background-size: cover !important;
+    background-position: center !important;
+    scroll-snap-align: center;
+  }
 
 
   /* ========== BHARAT STARTUP YATRA ========== */
@@ -1204,6 +1209,7 @@ nav {
     background-position: center !important;
   }
 
+
   /* ========== ABOUT SECTION ========== */
   #about { 
     padding: 60px 25px !important; 
@@ -1226,11 +1232,6 @@ nav {
     padding: 35px 25px; 
     gap: 35px; 
     margin: 45px auto; 
-  }
-  
-  .about-image-container { 
-    flex: 1; 
-    width: 100%; 
   }
   
   .about-image-container img { 
@@ -1271,8 +1272,10 @@ nav {
     height: 200px;
   }
 
+
   /* ========== MISSION & VISION ========== */
-  .mission-section, .vision-section {
+  .mission-section, 
+  .vision-section {
     flex-direction: column;
     padding: 50px 25px !important;
     gap: 30px;
@@ -1280,17 +1283,20 @@ nav {
     margin-top: 40px;
   }
   
-  .mission-heading, .vision-heading { 
+  .mission-heading, 
+  .vision-heading { 
     font-size: 32px; 
     margin-bottom: 20px; 
   }
   
-  .mission-text, .vision-text { 
+  .mission-text, 
+  .vision-text { 
     font-size: 16px; 
     line-height: 1.7; 
   }
   
-  .mission-image img, .vision-image img { 
+  .mission-image img, 
+  .vision-image img { 
     max-width: 100%; 
     border-radius: 16px; 
   }
@@ -1299,14 +1305,11 @@ nav {
     flex-direction: column-reverse; 
   }
 
+
   /* ========== SERVICES ========== */
   .services-hero h2 { 
     font-size: 38px; 
     margin-bottom: 15px; 
-  }
-  
-  .services-hero h3 p { 
-    font-size: 18px; 
   }
   
   .services-hero p { 
@@ -1339,10 +1342,7 @@ nav {
   .service-description { 
     font-size: 15px; 
   }
-  
-  .service-features p { 
-    font-size: 14px; 
-  }
+
 
   /* ========== IMPACT ========== */
   .impact-section { 
@@ -1374,104 +1374,56 @@ nav {
     font-size: 52px; 
     margin-bottom: 12px; 
   }
-  
-  .stat-card h3 { 
-    font-size: 22px; 
-    margin-bottom: 12px; 
-  }
-  
-  .stat-card p { 
-    font-size: 15px; 
-  }
 
-  /* ========== TEAM ========== */
+
+  /* ========== TEAM SECTION — FIXED ========== */
   #team { 
     padding: 60px 25px !important; 
   }
   
   .team-header h2 { 
-    font-size: 38px; 
+    font-size: 36px; 
     margin-bottom: 10px; 
+    text-align: center;
   }
   
   .team-subtitle { 
-    font-size: 18px; 
+    font-size: 17px; 
+    text-align: center;
   }
   
   .team-filmstrip { 
-    height: 80px; 
+    height: 70px; 
   }
   
   .team-grid { 
+    display: flex;
     flex-direction: column; 
-    gap: 30px; 
+    gap: 25px; 
     align-items: center; 
   }
   
- .team-member {
-  width: 100% !important;
-  max-width: 300px;
-  height: auto !important;
-  aspect-ratio: 3/4;
-  border-radius: 16px;
-  overflow: hidden;
-}
+  .team-member { 
+    width: 100% !important; 
+    max-width: 280px; 
+    height: auto !important; 
+    margin-bottom: 0 !important; 
+    border-radius: 16px;
+    overflow: hidden;
+  }
 
-.team-member img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .team-member img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
 
 
   /* ========== CONTACT ========== */
   #contact { 
     padding: 60px 25px !important; 
   }
-  
-  .contact-heading { 
-    font-size: 38px; 
-    margin-bottom: 40px; 
-  }
-  
-  .contact-image-full { 
-    height: 240px; 
-    border-radius: 16px; 
-    margin-bottom: 40px; 
-  }
-  
-  .contact-layout { 
-    grid-template-columns: 1fr; 
-    gap: 40px; 
-  }
-  
-  .contact-info-text h3 { 
-    font-size: 28px; 
-    margin-bottom: 15px; 
-    line-height: 1.3; 
-  }
-  
-  .contact-info-text p { 
-    font-size: 16px; 
-    line-height: 1.6; 
-  }
-  
-  .contact-right { 
-    padding: 35px 25px; 
-    border-radius: 16px; 
-  }
-  
-  .form-input { 
-    padding: 16px 20px; 
-    font-size: 15px; 
-  }
-  
-  .submit-btn { 
-    padding: 16px 35px; 
-    font-size: 16px; 
-    width: 100%; 
-    text-align: center; 
-  }
+
 
   /* ========== FOOTER ========== */
   .film-strip { 
@@ -1481,66 +1433,26 @@ nav {
   footer { 
     padding: 40px 25px 20px 25px; 
   }
-  
-  .footer-content { 
-    grid-template-columns: 1fr; 
-    gap: 40px; 
-    margin-bottom: 30px; 
-  }
-  
-  .footer-section h3 { 
-    font-size: 20px; 
-    margin-bottom: 18px; 
-  }
-  
-  .footer-links li { 
-    margin-bottom: 10px; 
-  }
-  
-  .footer-links a { 
-    font-size: 15px; 
-  }
-  
-  .contact-details { 
-    grid-template-columns: 1fr; 
-    gap: 30px; 
-  }
-  
-  .location h4 { 
-    font-size: 17px; 
-  }
-  
-  .location p { 
-    font-size: 14px; 
-  }
-  
-  .social-icons { 
-    justify-content: center; 
-    margin-top: 20px; 
-  }
-  
-  .footer-bottom { 
-    padding-top: 20px; 
-  }
-  
-  .footer-bottom p { 
-    font-size: 13px; 
-  }
 
-  /* ========== NAVIGATION ========== */
+
+  /* ========== NAV FIXED — No Overlap ========== */
   nav { 
     top: 15px; 
     right: 15px; 
   }
   
   nav ul { 
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px; 
+    justify-content: center;
   }
   
   nav ul li a { 
     padding: 8px 14px; 
     font-size: 14px; 
     border-radius: 10px; 
+    white-space: nowrap;
   }
 }
 
